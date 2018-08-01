@@ -30,6 +30,10 @@
         gtag('js', new Date());
         gtag('config', 'UA-121925525-1');
     </script>
+    <!-- Tocas UI：CSS 與元件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+    <!-- Tocas JS：模塊與 JavaScript 函式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
 </head>
 <body>
     <header style="
@@ -39,21 +43,20 @@
         transform: translate3d(0, -.1em, 0); color: #1c1c1b;
         line-height: 1em;
     ">6797</header>
-    <div class="row">
-        <div class="w-100">
-            <h1>AAA</h1>
-            <div class="c">
-                Hiiiiiii
-            </div>
-        </div>    
+    <div class="ts text container top attached header">Contact</div>
+    <div class="ts text attached container segment">
+        Email: jeffry1829@gmail.com<br/>
     </div>
-    <div class="row">
-            <div class="w-100">
-                <h1>BBB</h1>
-                <div class="c">
-                    Hiiiiiii<br/>
-                    AAA
-                </div>
-            </div>    
-        </div>
+    <div class="ts text container top attached header">2018/8/1 //LCA</div>
+    <div class="ts text attached container segment">
+        為了寫TIOJ1163學了一下倍增法LCA，蠻輕巧的，沒有原本想像得複雜<br/>
+        <a href="https://zhyack.github.io/posts/2015_12_22_LCA-Binary-Lifting-Note.html" target="_blank">外部連結</a><br/>
+        基本上就三個函式:<br/>
+        ->dfs儲存每個點的深度+儲存上一個點(father[][0]))<br/>
+        ->loop儲存每個點所有存在的2的冪次的祖先節點<br/>
+        ->assume depth(u)>depth(v)，先將u移到v的深度(這裡的depth並沒有考慮權重，不會發生沒有深度相同的點的問題)，<br/>
+        接著再用相似的方法把已經同處同樣深度的u,v慢慢上移，即可找到LCA。<br/>
+        圖像化直覺link:<br/>
+        <a href="https://blog.csdn.net/HowardEmily/article/details/72887538" target="_blank">外部連結</a><br/>
+    </div>
 </body>
