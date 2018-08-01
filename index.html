@@ -59,7 +59,39 @@
         圖像化直覺link:<br/>
         <a href="https://blog.csdn.net/HowardEmily/article/details/72887538" target="_blank">外部連結</a><br/>
     </div>
-    <div class="ts text container top attached header">2018/6/1 //JustDoIt</div>
+    <div class="ts text container top attached header">
+        2018/8/1 //關於LCA求MST(Minimal Spanning Tree)(最小生成樹)兩點唯一路徑權重最大值
+    </div>
+    <div class="ts text attached container segment">
+        和上一篇一樣，我還是在想TIOJ1163，我看過解答，我始終想不透為何麼LCA可以快速解這問題，<br/>
+        結果只是我想多了，其實想法異常粗暴。<br/><br/>
+        這題目大部分會被寫在求次小生成樹的解法上，因為次小生成樹的解法是:<br/>
+        先求MST(kruskal算法)，並一一嘗試每一個剩下沒連接到的邊(u,v,w(weight))，
+        必定形成環，檢查(u,v)間另外一條路徑上的最大權重，刪掉這edge，
+        接上我們正在嘗試的edge(u,v,w)，會得到新的樹權重和，最後輸出權重最小的結果就好。<br/><br/>
+        回到正題，這個問題的解法是:<br/>
+        ->let LCA=lca(u,v)<br/>
+        ->define walk(u,v):<br/>
+        ->->assume depth(u)>depth(v) and v is an ancestor of u<br/>
+        ->->因為在MST,(u,v)間只有一條路徑，所以我們可以一步一步往u上面的祖先走，並記錄最長的邊<br/>
+        ->->得到(u,v)間的最大權重<br/>
+        ->end walk<br/>
+        ->(因為walk傳入的(u,v)必須是祖先-子孫關係，所以我們必須先求LCA)<br/>
+        ->現在我們就可以得到答案是max(walk(u,LCA),walk(v,LCA))<br/>
+        ->end<br/><br/>
+        放一些文章:<br/>
+        TIOJ1163解答<br/>
+        <a href="https://blog.ototot.tk/2017/04/tioj-1163-6.html" target="_blank">外部連結</a><br/>
+        上面那個文章裡面的連結，關於walk的詳細說明(其實沒有說明，在code裡)<br/>
+        <a href="https://blog.ototot.tk/2017/03/tioj-1445.html" target="_blank">外部連結</a><br/>
+        另一種用到LCA的解法，只是我不知道怎麼生成那棵樹<br/>
+        <a href="http://blog.sina.com.cn/s/blog_51cea4040100ss3n.html" target="_blank">外部連結</a><br/>
+        另一種解法，好像是從生成MST時動手，沒看太懂<br/>
+        <a href="https://blog.csdn.net/zengchen__acmer/article/details/17323429" target="_blank">外部連結</a><br/>
+        次小生成樹<br/>
+        <a href="https://oi.men.ci/minimum-spanning-tree-notes/" target="_blank">外部連結</a><br/>
+    </div>
+    <div class="ts text container top attached header">2018/8/1 //JustDoIt</div>
     <div class="ts text attached container segment">
         Do it<br/>
         Just Do it<br/>
