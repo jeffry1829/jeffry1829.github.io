@@ -79,7 +79,8 @@
         ->(因為walk傳入的(u,v)必須是祖先-子孫關係，所以我們必須先求LCA)<br/>
         ->現在我們就可以得到答案是max(walk(u,LCA),walk(v,LCA))<br/>
         ->end<br/>
-        備註: 或許在dfs時最好紀錄每個點的進入時間和離開時間，可用做判斷u是否是v的祖先<br/><br/>
+        <!--備註: 或許在dfs時最好紀錄每個點的進入時間和離開時間，可用做判斷u是否是v的祖先<br/><br/>-->
+        備註:我在寫這題時全部測資都SegFault，目前還沒找到原因...<br/><br/>
         放一些文章:<br/>
         TIOJ1163解答<br/>
         <a href="https://blog.ototot.tk/2017/04/tioj-1163-6.html" target="_blank">外部連結</a><br/>
