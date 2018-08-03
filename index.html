@@ -45,7 +45,7 @@
     ">6797</header>
     <div class="ts text container top attached header">Contact</div>
     <div class="ts text attached container segment">
-        Email: jeffry1829@gmail.com<br/>
+        Email: jeffry1829@gmail.com(在沒討論版之前，如果想交流就傳封信來吧！)<br/>
     </div>
     <div class="ts text container top attached header">2018/8/1 //LCA</div>
     <div class="ts text attached container segment">
@@ -54,8 +54,9 @@
         基本上就三個函式:<br/>
         ->dfs儲存每個點的深度+儲存上一個點(father[][0]))<br/>
         ->loop儲存每個點所有存在的2的冪次的祖先節點<br/>
-        ->assume depth(u)>depth(v)，先將u移到v的深度(這裡的depth並沒有考慮權重，不會發生沒有深度相同的點的問題)，<br/>
+        ->assume depth(u)>depth(v)，先將u移到v的深度(這裡的depth並沒有考慮權重，不會發生沒有深度相同的點的問題)，
         接著再用相似的方法把已經同處同樣深度的u,v慢慢上移，即可找到LCA。<br/>
+        備註:網站裡的程式碼並非完全正確，有些地方仍需加上father不為-1的判斷。<br/>
         圖像化直覺link:<br/>
         <a href="https://blog.csdn.net/HowardEmily/article/details/72887538" target="_blank">外部連結</a><br/>
     </div>
@@ -64,7 +65,7 @@
     </div>
     <div class="ts text attached container segment">
         和上一篇一樣，我還是在想TIOJ1163，我看過解答，我始終想不透為何麼LCA可以快速解這問題，<br/>
-        結果只是我想多了，其實想法異常粗暴。<br/><br/>
+        結果只是我想多了，其實想法異常粗暴。(EDIT:其實也要用倍增法，詳見下篇文章)<br/><br/>
         這題目大部分會被寫在求次小生成樹的解法上，因為次小生成樹的解法是:<br/>
         先求MST(kruskal算法)，並一一嘗試每一個剩下沒連接到的邊(u,v,w(weight))，
         必定形成環，檢查(u,v)間另外一條路徑上的最大權重，刪掉這edge，
@@ -73,14 +74,14 @@
         ->let LCA=lca(u,v)<br/>
         ->define walk(u,v):<br/>
         ->->assume depth(u)>depth(v) and v is an ancestor of u<br/>
-        ->->因為在MST,(u,v)間只有一條路徑，所以我們可以一步一步往u上面的祖先走，並記錄最長的邊<br/>
+        ->->因為在MST,(u,v)間只有一條路徑，所以我們可以一步一步往u上面的祖先走，並記錄最長的邊(可以用倍增法
+        ，詳見下篇文章)<br/>
         ->->得到(u,v)間的最大權重<br/>
         ->end walk<br/>
         ->(因為walk傳入的(u,v)必須是祖先-子孫關係，所以我們必須先求LCA)<br/>
         ->現在我們就可以得到答案是max(walk(u,LCA),walk(v,LCA))<br/>
         ->end<br/>
-        <!--備註: 或許在dfs時最好紀錄每個點的進入時間和離開時間，可用做判斷u是否是v的祖先<br/><br/>-->
-        備註:我在寫這題時全部測資都SegFault，目前還沒找到原因...<br/><br/>
+        備註:我在寫這題時全部測資都SegFault，目前還沒找到原因...(EDIT:解決，詳見下篇文章)<br/><br/>
         放一些文章:<br/>
         TIOJ1163解答<br/>
         <a href="https://blog.ototot.tk/2017/04/tioj-1163-6.html" target="_blank">外部連結</a><br/>
@@ -91,7 +92,32 @@
         另一種解法，好像是從生成MST時動手，沒看太懂<br/>
         <a href="https://blog.csdn.net/zengchen__acmer/article/details/17323429" target="_blank">外部連結</a><br/>
         次小生成樹<br/>
-        <a href="https://oi.men.ci/minimum-spanning-tree-notes/" target="_blank">外部連結</a><br/>
+        <a href="https://oi.men.ci/minimum-spanning-tree-notes/" target="_blank">外部連結</a>
+    </div>
+    <div class="ts text container top attached header">對前兩篇文章的總結</div>
+    <div class="ts text attached container segment">
+        我終於AC了，雖然排名不是頂端，但我認為可能已經不那麼重要了，畢竟我完全照著網路解答(tototo大佬的那個解答)
+        的思路寫，僅僅有一個if條件(lca函式那，不知道為何不用交換u,v如果v比u深)我實在不知道做了什麼神奇的動作可以
+        省去和我多紀錄了每個點的depth(深度)來進行一些判斷，
+        基本上沒什麼區別，在最後還是差了40ms左右，我就把這個當做是解題系統的誤差吧(。而至於為什麼之前一直SegFault，
+        居然是因為我的dfs函式不小心回傳型別寫成int，而我最後並沒有回傳東西，g++ -Wall -Wextra居然什麼都沒有講，
+        我花了將近一天半重複debug，最後開Ubuntu虛擬機裝clang編譯，才終於告訴我我忘記回傳了，難道g++真的這麼弱嗎?
+        我哪裡設定調錯了?<br/><br/>
+        回到正題，現在來說一些從tototo大佬解答整理出來的特殊的優化方法。<br/>
+        1.dfs時紀錄每個點的進入/離開時間，撰寫函式anc(ancestor)用以判斷(u,v)兩點的祖先-子孫關係，在最後求lca時
+        可以從兩個迴圈變成一個迴圈，大概長這樣:<br/>
+        <img class="ts link fluid image" src="優化後的lca.PNG"><br/>
+        2.可以省去所有判斷father是否為-1的father初始化方法:不要有"到不了"狀態，也就是不要有-1。<br/>
+        具體方法為在初始化時對每一個點的所有祖先都設為自己，如此一來最後原本會是"到不了"的狀態(-1))，會變成端點的號碼。<br/>
+        這樣敘述"非常"不清楚，可以自己想像一下。<br/>
+        3.倍增法walk優化:這個優化並沒有非常特殊，一般來說都已經倍增法求LCA了，自然會想到用倍增法優化walk函式。<br/>
+        具體作法是把father[i][j]的型別從int改成pait<int,int>，第一個欄位是原本的值，第二個欄位就是從i點到i的2^j
+        祖先點路徑上權重最大值，參考一下答案應該不難實作。<br/><br/>
+        一些連結:<br/>
+        高仿oToToT大佬的解答<br/>
+        <a href="https://gist.github.com/jeffry1829/afbe03aafb85f3fb356b166469588cc8" target="_blank">外部連結</a><br/>
+        無優化解答(然而和優化後解答只差30ms)<br/>
+        <a href="https://gist.github.com/jeffry1829/f52c54c99960b5b477ca7e7aba223fa9" target="_blank">外部連結</a>
     </div>
     <div class="ts text container top attached header">2018/8/1 //JustDoIt</div>
     <div class="ts text attached container segment">
