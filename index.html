@@ -119,6 +119,23 @@
         無優化解答(然而和優化後解答只差30ms)<br/>
         <a href="https://gist.github.com/jeffry1829/f52c54c99960b5b477ca7e7aba223fa9" target="_blank">外部連結</a>
     </div>
+    <div class="ts text container top attached header">2018/8/3 //沒學過asm的人隨手記一記</div>
+    <div class="ts text attached container segment">
+        上一篇文章提到了因為忘記return所以爆炸。我做了一些小實驗想看看為什麼，雖然最後還是不知道哪裡會發生UB，仍姑且
+        記一記。<br/><br/>
+        <img class="ts link fluid image" src="dfs_asm1.jpg"><br/>
+        圖一(-O2)<br/>
+        <img class="ts link fluid image" src="dfs_asm2.jpg"><br/>
+        圖二<br/>
+        <img class="ts link fluid image" src="dfs_asm3.jpg"><br/>
+        圖三<br/>
+        <img class="ts link fluid image" src="dfs_asm4.jpg"><br/>
+        圖四<br/><br/>
+        圖二可以看到sub $0x8 %rsp(64bit的return address size)，圖三可以看到push r13,r12,rbp,rbx，圖四可以看到pop回來
+        並且retq(因為是64bit)，雖然因為我不會/也懶得一個一個instructor慢慢查，我只能說乍看之下應該是不會有太大的問題的(
+        也就是認為不會產生UB)，也就是仍然無法解釋UB的來龍去脈。(return應該是%eax，已經xor %eax %eax了 應該回傳值會被認為
+        是0?)
+    </div>
     <div class="ts text container top attached header">2018/8/1 //JustDoIt</div>
     <div class="ts text attached container segment">
         Do it<br/>
