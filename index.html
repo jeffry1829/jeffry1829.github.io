@@ -5,23 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>6797  // PETJELINUX</title>
-    <style>html{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing: grayscale}*+*{box-sizing:border-box;margin:0}@media(min-width:35em){.col{display:table-cell}.\31{width:5%}.\33{width:22%}.\34{width:30%}.\35{width:40%}.\32{width:15%}.row{display:table;border-spacing:1em 0}}.row,.w-100{width:100%}.card:focus,hr{outline:0;border:solid var(--primary-color)}.card,pre{padding:1em;border:solid var(--light)}.c{max-width:60em;padding:1em;margin:auto;font:1em/1.6 var(--font)}p{padding:.5em 0}h6{font:300 1em var(--font)}h5{font:300 1.2em var(--font)}h3{font:300 2em var(--font)}h4{font:300 1.5em var(--font)}h2{font:300 2.2em var(--font)}h1{font:300 2.5em var(--font)}a{text-decoration:none}a,a:hover{border-bottom:1px dotted rgba(0,0,0,.5)}a:hover{background:var(--link-highlight-color)}pre{overflow:auto}td,th{padding:1em;text-align:left;border-bottom:solid var(--light)}footer{padding:0 0 3vmin;font-family:var(--font);position:static}</style>
-    <style>
-        ol, ol li { margin-left: 0; padding-left: 0; list-style: none }
-        :root{
-            --font:"Helvetica Neue", Helvetica, Arial, sans-serif;
-            --link-highlight-color:#ff0;
-        }
-        .ta { animation: 1.2s ease-out a; animation-fill-mode: both}
-        @keyframes a {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .l {border-left:1px solid #000;padding-left:2em}
-        @media(max-width:35em){
-            .l { border-left: none; padding-left: initial}
-        }
-    </style>
+    <style>html{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing: grayscale}*+*{box-sizing:border-box;margin:0}@media(min-width:35em){.col{display:table-cell}.\31{width:5%}.\33{width:22%}.\34{width:30%}.\35{width:40%}.\32{width:15%}.row{display:table;border-spacing:1em 0}}.row,.w-100{width:100%}.card:focus,hr{outline:0;border:solid var(--primary-color)}.card,pre{padding:1em;border:solid var(--light)}.c{max-width:60em;padding:1em;margin:auto;font:1em/1.6 var(--font)}p{padding:.5em 0}h6{font:300 1em var(--font)}h5{font:300 1.2em var(--font)}h3{font:300 2em var(--font)}h4{font:300 1.5em var(--font)}h2{font:300 2.2em var(--font)}h1{font:300 2.5em var(--font)}a{text-decoration:none}a,a:hover{border-bottom:1px dotted rgba(0,0,0,.5)}a:hover{background:var(--link-highlight-color)}pre{overflow:auto}td,th{padding:1em;text-align:left;border-bottom:solid var(--light)}footer{padding:0 0 3vmin;font-family:var(--font);position:static}ol, ol li { margin-left: 0; padding-left: 0; list-style: none }        :root{            --font:"Helvetica Neue", Helvetica, Arial, sans-serif;            --link-highlight-color:#ff0;        }        .ta { animation: 1.2s ease-out a; animation-fill-mode: both}        @keyframes a {            0% { opacity: 0; }            100% { opacity: 1; }        }        .l {border-left:1px solid #000;padding-left:2em}        @media(max-width:35em){            .l { border-left: none; padding-left: initial}        }</style>
+    
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script>
@@ -30,10 +15,21 @@
         gtag('js', new Date());
         gtag('config', 'UA-121925525-1');
     </script>
-    <!-- Tocas UI：CSS 與元件 -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
-    <!-- Tocas JS：模塊與 JavaScript 函式 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <!--
+        PLUGINS
+        https://prismjs.com/plugins/line-highlight/
+        https://prismjs.com/plugins/line-numbers/
+        https://prismjs.com/plugins/show-language/
+        https://prismjs.com/plugins/keep-markup/
+        https://prismjs.com/plugins/normalize-whitespace/
+        https://prismjs.com/plugins/unescaped-markup/
+    -->
 </head>
 <body>
     <header style="
@@ -136,6 +132,141 @@
         也就是認為不會產生UB)，也就是仍然無法解釋UB的來龍去脈。(return應該是%eax，已經xor %eax %eax了 應該回傳值會被認為
         是0?)
     </div>
+<!--    <div class="ts text container top attached header">TEST</div>
+    <div class="ts text attached container segment">
+        <pre class="line-numbers" data-line="5">
+            <code class="language-clike">
+#include &lt;bits/stdc++.h&gt;
+#define _V 30010
+#define _E 50010
+#define maxB 15  //2^15&gt;30000
+using namespace std;
+struct WE {
+  int v, d;
+};
+struct EDGE {
+  int x, y, d;
+};
+EDGE E1[_E];
+vector&lt;WE&gt; G2[_V];
+int djs[_V], dsc[_V], depth[_V], father[_V][maxB], fatherwei[_V], V, E, Q;
+bool visited[_V];
+inline void dsunion(int s1, int s2) {
+  if (dsc[s1] &lt; dsc[s2]) swap(s1, s2);
+  djs[s2] = djs[s1];
+  dsc[s1] += dsc[s2];
+}
+inline int dsfind(int x) {
+  if (djs[x] != x) djs[x] = dsfind(djs[x]);
+  return djs[x];
+}
+void dfs(int v, int d, int fa, int weight) {
+  visited[v] = true;
+  depth[v] = d;
+  father[v][0] = fa;
+  fatherwei[v] = weight;
+  for (int i = 0; i &lt; G2[v].size(); i++) {
+    if (!visited[G2[v][i].v]) {
+      dfs(G2[v][i].v, d + 1, v, G2[v][i].d);
+    }
+  }
+}
+inline void findfather() {
+  for (int j = 1; j &lt; maxB; j++)
+    for (int i = 0; i &lt; V; i++)
+      if (~father[i][j - 1])
+        father[i][j] = father[father[i][j - 1]][j - 1];
+}
+inline int lca(int u, int v) {  // be used when everything is ready
+  if (depth[u] &lt; depth[v]) swap(u, v);
+  for (int i = maxB - 1; i &gt;= 0; i--)
+    if (~father[u][i] &amp;&amp; depth[father[u][i]] &gt;= depth[v])
+      u = father[u][i];
+  if (u == v) return v;
+  for (int i = maxB - 1; i &gt;= 0; i--)
+    if (~father[u][i] &amp;&amp; ~father[v][i] &amp;&amp; father[u][i] != father[v][i]) {
+      u = father[u][i];
+      v = father[v][i];
+    }
+  return father[u][0];
+}
+inline void getE1() {
+  int X, Y, d;
+  for (int i = 0; i &lt; E; i++) {
+    cin &gt;&gt; X &gt;&gt; Y &gt;&gt; d;
+    X--;
+    Y--;  // because input vertices are 1~V
+    E1[i] = (EDGE){X, Y, d};
+  }
+}
+inline void kruskal() {
+  sort(E1, E1 + E, [](EDGE l, EDGE r) -&gt; bool { return l.d &lt; r.d; });
+  for (int i = 0; i &lt; E; i++) {
+    EDGE e = E1[i];
+    int s1, s2;
+    if ((s1 = dsfind(e.x)) != (s2 = dsfind(e.y))) {
+      dsunion(s1, s2);
+      G2[e.x].push_back((WE){e.y, e.d});
+      G2[e.y].push_back((WE){e.x, e.d});
+    }
+  }
+}
+inline void genG2() {
+  kruskal();
+}
+inline int walk(int u, int v) {  //return max
+  int maxedge = -1;
+  if (depth[u] &lt; depth[v]) swap(u, v);
+  while (u != v) {
+    maxedge = max(maxedge, fatherwei[u]);
+    u = father[u][0];
+  }
+  return maxedge;
+}
+main(void) {
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
+  cin &gt;&gt; V &gt;&gt; E;
+  memset(dsc, 1, sizeof(int) * _V);
+  memset(depth, 0, sizeof(int) * _V);
+  memset(fatherwei, 0, sizeof(int) * _V);
+  for (int i = 0; i &lt; V; i++)
+    for (int j = 0; j &lt; maxB; j++)
+      father[i][j] = -1;
+  memset(visited, 0, sizeof(bool) * _V);
+  memset(E1, 0, sizeof(EDGE) * _E);
+  for (int i = 0; i &lt; V; i++)
+    djs[i] = i;
+  getE1();
+  genG2();
+  for (int i = 0; i &lt; V; i++) {
+    if (!visited[i]) {
+      dfs(i, 0, -1, -1);
+    }
+  }
+  findfather();
+  cin &gt;&gt; Q;
+  for (int i = 0; i &lt; Q; i++) {
+    int ST, ED;
+    cin &gt;&gt; ST &gt;&gt; ED;
+    ST--;
+    ED--;
+    if (dsfind(ST) != dsfind(ED)) {
+      cout &lt;&lt; &quot;-1\n&quot;;
+      continue;
+    }
+    if (ST == ED) {
+      cout &lt;&lt; &quot;0\n&quot;;
+      continue;
+    }
+    int LCA = lca(ST, ED);
+    cout &lt;&lt; max(walk(ST, LCA), walk(ED, LCA)) &lt;&lt; '\n';
+  }
+  return 0;
+}
+            </code>
+        </pre>
+    </div>-->
     <div class="ts text container top attached header">2018/8/1 //JustDoIt</div>
     <div class="ts text attached container segment">
         Do it<br/>
