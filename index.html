@@ -18,10 +18,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js" async></script>
-
-    <link rel="stylesheet" href="prism.css">
-    <script src="prism.js" async></script>
     <!--
+        <link rel="stylesheet" href="prism.css">
+        <script src="prism.js" async></script>
         PLUGINS
         https://prismjs.com/plugins/line-highlight/
         https://prismjs.com/plugins/line-numbers/
@@ -30,6 +29,7 @@
         https://prismjs.com/plugins/normalize-whitespace/
         https://prismjs.com/plugins/unescaped-markup/
     -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 </head>
 <body>
     <header style="
@@ -136,134 +136,7 @@
     <div class="ts text attached container segment">
         <pre class="line-numbers" data-line="5">
             <code class="language-clike">
-#include &lt;bits/stdc++.h&gt;
-#define _V 30010
-#define _E 50010
-#define maxB 15  //2^15&gt;30000
-using namespace std;
-struct WE {
-  int v, d;
-};
-struct EDGE {
-  int x, y, d;
-};
-EDGE E1[_E];
-vector&lt;WE&gt; G2[_V];
-int djs[_V], dsc[_V], depth[_V], father[_V][maxB], fatherwei[_V], V, E, Q;
-bool visited[_V];
-inline void dsunion(int s1, int s2) {
-  if (dsc[s1] &lt; dsc[s2]) swap(s1, s2);
-  djs[s2] = djs[s1];
-  dsc[s1] += dsc[s2];
-}
-inline int dsfind(int x) {
-  if (djs[x] != x) djs[x] = dsfind(djs[x]);
-  return djs[x];
-}
-void dfs(int v, int d, int fa, int weight) {
-  visited[v] = true;
-  depth[v] = d;
-  father[v][0] = fa;
-  fatherwei[v] = weight;
-  for (int i = 0; i &lt; G2[v].size(); i++) {
-    if (!visited[G2[v][i].v]) {
-      dfs(G2[v][i].v, d + 1, v, G2[v][i].d);
-    }
-  }
-}
-inline void findfather() {
-  for (int j = 1; j &lt; maxB; j++)
-    for (int i = 0; i &lt; V; i++)
-      if (~father[i][j - 1])
-        father[i][j] = father[father[i][j - 1]][j - 1];
-}
-inline int lca(int u, int v) {  // be used when everything is ready
-  if (depth[u] &lt; depth[v]) swap(u, v);
-  for (int i = maxB - 1; i &gt;= 0; i--)
-    if (~father[u][i] &amp;&amp; depth[father[u][i]] &gt;= depth[v])
-      u = father[u][i];
-  if (u == v) return v;
-  for (int i = maxB - 1; i &gt;= 0; i--)
-    if (~father[u][i] &amp;&amp; ~father[v][i] &amp;&amp; father[u][i] != father[v][i]) {
-      u = father[u][i];
-      v = father[v][i];
-    }
-  return father[u][0];
-}
-inline void getE1() {
-  int X, Y, d;
-  for (int i = 0; i &lt; E; i++) {
-    cin &gt;&gt; X &gt;&gt; Y &gt;&gt; d;
-    X--;
-    Y--;  // because input vertices are 1~V
-    E1[i] = (EDGE){X, Y, d};
-  }
-}
-inline void kruskal() {
-  sort(E1, E1 + E, [](EDGE l, EDGE r) -&gt; bool { return l.d &lt; r.d; });
-  for (int i = 0; i &lt; E; i++) {
-    EDGE e = E1[i];
-    int s1, s2;
-    if ((s1 = dsfind(e.x)) != (s2 = dsfind(e.y))) {
-      dsunion(s1, s2);
-      G2[e.x].push_back((WE){e.y, e.d});
-      G2[e.y].push_back((WE){e.x, e.d});
-    }
-  }
-}
-inline void genG2() {
-  kruskal();
-}
-inline int walk(int u, int v) {  //return max
-  int maxedge = -1;
-  if (depth[u] &lt; depth[v]) swap(u, v);
-  while (u != v) {
-    maxedge = max(maxedge, fatherwei[u]);
-    u = father[u][0];
-  }
-  return maxedge;
-}
-main(void) {
-  cin.tie(0);
-  ios_base::sync_with_stdio(0);
-  cin &gt;&gt; V &gt;&gt; E;
-  memset(dsc, 1, sizeof(int) * _V);
-  memset(depth, 0, sizeof(int) * _V);
-  memset(fatherwei, 0, sizeof(int) * _V);
-  for (int i = 0; i &lt; V; i++)
-    for (int j = 0; j &lt; maxB; j++)
-      father[i][j] = -1;
-  memset(visited, 0, sizeof(bool) * _V);
-  memset(E1, 0, sizeof(EDGE) * _E);
-  for (int i = 0; i &lt; V; i++)
-    djs[i] = i;
-  getE1();
-  genG2();
-  for (int i = 0; i &lt; V; i++) {
-    if (!visited[i]) {
-      dfs(i, 0, -1, -1);
-    }
-  }
-  findfather();
-  cin &gt;&gt; Q;
-  for (int i = 0; i &lt; Q; i++) {
-    int ST, ED;
-    cin &gt;&gt; ST &gt;&gt; ED;
-    ST--;
-    ED--;
-    if (dsfind(ST) != dsfind(ED)) {
-      cout &lt;&lt; &quot;-1\n&quot;;
-      continue;
-    }
-    if (ST == ED) {
-      cout &lt;&lt; &quot;0\n&quot;;
-      continue;
-    }
-    int LCA = lca(ST, ED);
-    cout &lt;&lt; max(walk(ST, LCA), walk(ED, LCA)) &lt;&lt; '\n';
-  }
-  return 0;
-}
+            escaped code
             </code>
         </pre>
     </div>-->
@@ -272,6 +145,88 @@ main(void) {
         暫時不作詳細說明，因為僅僅是拿到AC，但複雜度太高<br/>
         原始碼:<br/>
         <a href="https://gist.github.com/jeffry1829/bf9b74a77b87e1ecd65dec426bf6e0d3" target="_blank">外部連結</a>
+    </div>
+    <div class="ts text container top attached header">2018/8/21 //Codeforce 510C</div>
+    <div class="ts text attached container segment">
+        <p>
+          Key: Topological sort(拓樸排序)<br/>
+          大約意思是給定一張DAG(Directed Acyclic Graph有向無環圖)，把所有點展開成連的邊只往下指
+          ，輸出一種點的順序滿足點是從最上"層"到最下"層"。<br/>
+          至於判斷是否是DAG的方法其中一種是利用dfs，紀錄每一點的離開時間，如果
+          dfs到其中一點u時，發現u連到一個點v，但v已進入卻"未離開"，即代表有環存在。
+          拓樸排序也可以簡單的由輸出離開時間從最晚到最早得到。<br/>
+          原始碼:<br/>
+          <a href="https://gist.github.com/jeffry1829/c6da453666e3ec57e2f6ce4f6bf6ae29" target="_blank">外部連結</a>
+      </p>
+    </div>
+    <div class="ts text container top attached header">2018/8/21 //TIOJ1092</div>
+    <div class="ts text attached container segment">
+      <p>
+        Key: dp<br/>
+        很多人先得到拓樸排序再從dp(N)回推到dp(1)，但我覺得直接下dp(1)再慢慢遞迴得到答案即可。<br/>
+        想法是:一個點如果要(站在上面的人)必勝，必須滿足這個點連出去每個點都必輸，
+        同理如果要必輸，這個點連出去至少要有一個點必勝。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/78283789a3800239bdd8a4e085907076" target="_blank">外部連結</a>
+      </p>
+    </div>
+    <div class="ts text container top attached header">2018/10/9 //Update</div>
+    <div class="ts text attached container segment">
+        很久沒更新了，有幾題可以寫解釋。<br/>
+        //TIOJ1641<br/>
+        dijkstra，但是明明不是單純加上邊權阿?我們可以取log<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/106aae07b0898f06557016f7f8cdf9cd" target="_blank">外部連結</a><br/>
+        <br/>
+        //TIOJ1096<br/>
+        原始碼:<br/>
+        floyd-warshall algo, 找*自己到自己*的最短路。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/c838fc0c39a90fe634e9f391135f6f77" target="_blank">外部連結</a><br/>
+        <br/>
+        //Codeforce 543B<br/>
+        首先要意識到這問題等價於求出滿足條件需要最少的edge數<br/>
+        接著可以分成兩種情況，1.兩條路徑不相交2.兩條路徑有重疊(邊重疊)<br/>
+        bfs求出全點對最短路(因為邊權為一，不需要特別的最短路演算法)，<br/>
+        對於第一種情況的路徑邊數為dis(s1t1)+dis(s2t2)(dis:(x,y),x,y的最短路徑長度)，<br/>
+        至於對第二種情況，遍歷所有s1t1,s2t2可能的重複路徑(i,j)，取其最小(和狀況一一起比大小)，最終總邊數扣掉最少需要邊數即為解答。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/2a510e7db99702000d4b3cdac3d0a292" target="_blank">外部連結</a><br/>
+        <br/>
+        //zerojudge d518<br/>
+        直覺是map(二元樹)或unordered_map(hash+collide解決措施)，非常簡單。但如果用trie實作會MLE，不管怎麼用都沒辦法，待補。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/636972fc9560619b38a9c3362852a824" target="_blank">外部連結</a><br/>
+        <br/>
+        //TIOJ1306<br/>
+        hash，rabin fingerprint->可O(1)獲得原字串的子字串的hash。詳見tioj 2016資訊校隊培訓講義字串篇。M取1e9就蠻穩的。<br/>
+        實作需要一點點mod的運算，因為數字非常大。要算ap^n+b^(n-1)...yp+z (mod M)可以先算a (mod M)再(*P + b) (mod M)<br/>
+        要算(a-b) (mod M)如果直接代公式(((a mod M)-(b mod M))+M)mod M會比let tmp=a-(b mod M); if(tmp&lt;0) tmp+=M;慢兩倍。(詳細
+        我也沒推導過)<br/>
+        可以去wiki看mod運算規則和程式碼自己推一遍。<br/>
+        另外因為記憶體用得有點多，所以大部分時間都用int儲存結果，只有在運算過程中換成long long並最後mod M後再cast成int。<br/>
+        例:res = (res * 1ll * _p1 + s[i - 1] * 1ll) % _M;<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/18a2dd0f3d80baec56f52f9c4687d490" target="_blank">外部連結</a><br/>
+        ^基本上不需要用到unsigned long long，接下來放上hash template。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/b80e23ccc932d3fd0c5044226045f7b4" target="_blank">外部連結</a><br/>
+        <br/>
+        //TIOJ1321<br/>
+        字串前綴丟到後面可以看成兩倍的字串並偏移起始位置，像是這樣:<br/>
+        abcdeabcde<br/>
+        cdeab(前二丟到後面)為上方字串從[2]開始長度為原字串長度的子字串。<br/>
+        接下來就用hash解題。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/5f66e5b264cc9656c168f676aa357e12" target="_blank">外部連結</a><br/>
+        <br/>
+        //TIOJ1725<br/>
+        Gusfield's Algorithm(Z Algorithm)<br/>
+        但是如果想知道是否是只差一個字元單純暴力下去會TLE，有個想法:把字串反過來再來一次Z Algo，兩次匹配長度和為N-1，那麼就只差一個字元。<br/>
+        詳細:<a href="http://codingbeans.blogspot.com/2016/03/tioj-1725z-algorithm-massacre-at-camp.html" target="_blank">外部連結</a><br/>
+        Z Algo一樣可以參考tioj 2016資訊校隊培訓講義字串篇。<br/>
+        原始碼:<br/>
+        <a href="https://gist.github.com/jeffry1829/8701e5e9236bf6b9b052752cb61bc286" target="_blank">外部連結</a><br/>
     </div>
     <div class="ts text container top attached header">2018/8/1 //JustDoIt</div>
     <div class="ts text attached container segment">
