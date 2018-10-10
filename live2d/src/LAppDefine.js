@@ -27,14 +27,14 @@ var LAppDefine = {
     PRIORITY_FORCE : 3,
     
     
-    BACK_IMAGE_NAME : "assets/image/back_class_normal.png",
+    BACK_IMAGE_NAME : "live2d/assets/image/back_class_normal.png",
 
     
-    MODEL_HARU : "assets/live2d/haru/haru.model.json",
-    MODEL_HARU_A : "assets/live2d/haru/haru_01.model.json",
-    MODEL_HARU_B : "assets/live2d/haru/haru_02.model.json",
-    MODEL_SHIZUKU : "assets/live2d/shizuku/shizuku.model.json",
-    MODEL_WANKO : "assets/live2d/wanko/wanko.model.json",
+    MODEL_HARU : "live2d/assets/live2d/haru/haru.model.json",
+    MODEL_HARU_A : "live2d/assets/live2d/haru/haru_01.model.json",
+    MODEL_HARU_B : "live2d/assets/live2d/haru/haru_02.model.json",
+    MODEL_SHIZUKU : "live2d/assets/live2d/shizuku/shizuku.model.json",
+    MODEL_WANKO : "live2d/assets/live2d/wanko/wanko.model.json",
     
     
     MOTION_GROUP_IDLE : "idle", 
