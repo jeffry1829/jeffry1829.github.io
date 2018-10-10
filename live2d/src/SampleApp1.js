@@ -62,10 +62,10 @@ function initL2dCanvas(canvasId)
         
     }
     
-    /*btnChangeModel = document.getElementById("btnChange");
+    btnChangeModel = document.getElementById("btnChange");
     btnChangeModel.addEventListener("click", function(e) {
         changeModel();
-    });*/
+    });
 }
 
 
@@ -172,10 +172,10 @@ function draw()
             
             if (!this.isModelShown && i == this.live2DMgr.numModels()-1) {
                 this.isModelShown = !this.isModelShown;
-                /*var btnChange = document.getElementById("btnChange");
+                var btnChange = document.getElementById("btnChange");
                 btnChange.textContent = "Change Model";
                 btnChange.removeAttribute("disabled");
-                btnChange.setAttribute("class", "active");*/
+                btnChange.setAttribute("class", "active");
             }
         }
     }
@@ -186,10 +186,10 @@ function draw()
 
 function changeModel()
 {
-    /*var btnChange = document.getElementById("btnChange");
+    var btnChange = document.getElementById("btnChange");
     btnChange.setAttribute("disabled","disabled");
     btnChange.setAttribute("class", "inactive");
-    btnChange.textContent = "Now Loading...";*/
+    btnChange.textContent = "Now Loading...";
     this.isModelShown = false;
     
     this.live2DMgr.reloadFlg = true;
