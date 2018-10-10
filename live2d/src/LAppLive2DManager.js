@@ -33,7 +33,7 @@ LAppLive2DManager.prototype.changeModel = function(gl)
     {
         
         this.reloadFlg = false;
-        var no = parseInt(this.count % 4);
+        var no = parseInt(this.count % 5);
 
         var thisRef = this;
         switch (no)
@@ -55,6 +55,11 @@ LAppLive2DManager.prototype.changeModel = function(gl)
                 this.models[0].load(gl, LAppDefine.MODEL_WANKO);            
                 break;
             case 3: 
+                this.releaseModel(0, gl);
+                this.createModel();
+                this.models[0].load(gl, LAppDefine.MODEL_BIGWHALE);
+                break;
+            case 4: 
                 this.releaseModel(0, gl);
                 
                 // 一体目のモデル
