@@ -1,0 +1,22 @@
+{
+	"version":"Sample 1.0.0",
+	"model":"ev02.moc",
+	"textures":[
+		"ev02.1024/texture_00.png",
+		"ev02.1024/texture_01.png"
+	],
+	"motions":{
+		"idle":[
+			{"file":"motions/idle_01.mtn"},
+			{"file":"motions/idle_02.mtn"},
+			{"file":"motions/idle_03.mtn"},
+			{"file":"motions/idle_03a.mtn"},
+			{"file":"motions/idle_04.mtn"}
+		],
+		"":[
+			{"file":"motions/mtn_01.mtn"},
+			{"file":"motions/mtn_02.mtn"}
+		]
+	},
+	"physics":"embed://Sample Physics.json"
+}

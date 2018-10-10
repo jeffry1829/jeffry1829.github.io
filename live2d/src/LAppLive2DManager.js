@@ -57,9 +57,12 @@ LAppLive2DManager.prototype.changeModel = function(gl)
             case 3: 
                 this.releaseModel(0, gl);
                 this.createModel();
-                this.models[0].load(gl, LAppDefine.MODEL_BIGWHALE);
+                this.models[0].load(gl, LAppDefine.MODEL_HOUKAGOU);
+                document.getElementById("glcanvas").style.backgroundImage="url(/live2d/assets/live2d/houkago2/ev3/moc/bg_09_ev3.jpg)";
                 break;
-            case 4: 
+            case 4:
+                document.getElementById("glcanvas").style.backgroundImage="none";
+
                 this.releaseModel(0, gl);
                 
                 // 一体目のモデル

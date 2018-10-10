@@ -1,0 +1,22 @@
+{
+	"version":"Sample 1.0.0",
+	"model":"ev03.moc",
+	"textures":[
+		"ev03.1024/texture_00.png",
+		"ev03.1024/texture_01.png",
+		"ev03.1024/texture_02.png"
+	],
+	"motions":{
+		"idle":[
+			{"file":"motions/idle_01.mtn"},
+			{"file":"motions/idle_02.mtn"},
+			{"file":"motions/idle_03_off.mtn"},
+			{"file":"motions/idle_03_on.mtn"}
+		],
+		"":[
+			{"file":"motions/mtn_01.mtn"},
+			{"file":"motions/mtn_02.mtn"},
+			{"file":"motions/mtn_03.mtn"}
+		]
+	}
+}

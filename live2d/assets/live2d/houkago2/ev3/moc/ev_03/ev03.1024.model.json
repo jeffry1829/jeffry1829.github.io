@@ -1,0 +1,10 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "ev03",
+	"model": "ev03.moc",
+	"textures": [
+		"ev03.1024/texture_00.png",
+		"ev03.1024/texture_01.png",
+		"ev03.1024/texture_02.png"
+	]
+}
