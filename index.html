@@ -223,7 +223,7 @@
         <br/>
         //TIOJ1306<br/>
         hash，rabin fingerprint->可O(1)獲得原字串的子字串的hash。詳見tioj 2016資訊校隊培訓講義字串篇。M取1e9就蠻穩的。<br/>
-        實作需要一點點mod的運算，因為數字非常大。要算$$(ap^n+bp^{n-1}...yp+z)\mod M$$可以先算$$a\mod M再(*P + b)\mod M$$<br/>
+        實作需要一點點mod的運算，因為數字非常大。要算$$(ap^n+bp^{n-1}...yp+z)\mod M$$可以先算$$a\mod M再((*p + b)\mod M)$$<br/>
         要算$$(a-b)\mod M$$如果直接代公式$$(((a\mod M)-(b\mod M))+M)\mod M$$會比let tmp=a-(b mod M); if(tmp&lt;0) tmp+=M;慢兩倍。(詳細我也沒推導過)<br/>
         可以去wiki看mod運算規則和程式碼自己推一遍。<br/>
         另外因為記憶體用得有點多，所以大部分時間都用int儲存結果，只有在運算過程中換成long long並最後mod M後再cast成int。<br/>
