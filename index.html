@@ -171,7 +171,7 @@
         回到正題，現在來說一些從tototo大佬解答整理出來的特殊的優化方法。<br/>
         1.dfs時紀錄每個點的進入/離開時間，撰寫函式anc(ancestor)用以判斷(u,v)兩點的祖先-子孫關係，在最後求lca時
         可以從兩個迴圈變成一個迴圈，大概長這樣:<br/>
-        <img class="ts link fluid image" src="優化後的lca.PNG"><br/>
+        <img class="ts link fluid image" src="optedlca.PNG"><br/>
         2.可以省去所有判斷father是否為-1的father初始化方法:不要有"到不了"狀態，也就是不要有-1。<br/>
         具體方法為在初始化時對每一個點的所有祖先都設為自己，如此一來最後原本會是"到不了"的狀態(-1))，會變成端點的號碼。<br/>
         這樣敘述"非常"不清楚，可以自己想像一下。<br/>
@@ -269,9 +269,8 @@
         <br/>
         //TIOJ1306<br/>
         hash，rabin fingerprint->可O(1)獲得原字串的子字串的hash。詳見tioj 2016資訊校隊培訓講義字串篇。M取1e9就蠻穩的。<br/>
-        實作需要一點點mod的運算，因為數字非常大。要算$$ap^n+b^(n-1)...yp+z (mod M)$$可以先算$$a (mod M)再(*P + b) (mod M)$$<br/>
-        要算$$(a-b) (mod M)$$如果直接代公式$$(((a mod M)-(b mod M))+M)mod M$$會比let tmp=a-(b mod M); if(tmp&lt;0) tmp+=M;慢兩倍。(詳細
-        我也沒推導過)<br/>
+        實作需要一點點mod的運算，因為數字非常大。要算$$(ap^n+b^{(n-1)}...yp+z)\mod M$$可以先算$$a\mod M再(*P + b)\mod M$$<br/>
+        要算$$(a-b)\mod M$$如果直接代公式$$(((a\mod M)-(b\mod M))+M)\mod M$$會比let tmp=a-(b mod M); if(tmp&lt;0) tmp+=M;慢兩倍。(詳細我也沒推導過)<br/>
         可以去wiki看mod運算規則和程式碼自己推一遍。<br/>
         另外因為記憶體用得有點多，所以大部分時間都用int儲存結果，只有在運算過程中換成long long並最後mod M後再cast成int。<br/>
         例:res = (res * 1ll * _p1 + s[i - 1] * 1ll) % _M;<br/>
@@ -316,11 +315,9 @@
         2.本次教學使用<a href="http://library.live2d.com/Libraries/view/000051/kamiyoshi" target="_blank">外部連結</a>作為範例。<br/>
         3.下載後整個資料夾丟入assets/live2d，我們要使用的是ev2中的model。<br/>
         4.開啟src/LAppDefine.js，加入MODEL_HOUKAGOU : "/live2d/assets/live2d/houkago2/ev2/moc/ev_02/ev02.model.json",<br/>
-        5.開啟src/LAppLive2DManager.js，找到LAppLive2DManager.prototype.changeModel，裡面有一個switch(no)，大概意思就是每按一次按鈕no+=1
-        然後處理不同的case，可以稍微讀讀。<br/>
+        5.開啟src/LAppLive2DManager.js，找到LAppLive2DManager.prototype.changeModel，裡面有一個switch(no)，大概意思就是每按一次按鈕no+=1然後處理不同的case，可以稍微讀讀。<br/>
         6.把上面var no = parseInt(this.count % 4);改成%5，因為我們要多加一個進去。<br/>
-        7.把case 3改成這樣<a href="https://gist.github.com/jeffry1829/470d9c95765a2a5986f4982bc013308d" target="_blank">外部連結</a>
-        ，因為原本的case3有兩個model，所以下一個model需要release兩次，為了方便，我們直接把case3改成新model。(我在背景下了一點功夫，可以讀一讀。path一樣需要調整一下)<br/>
+        7.把case 3改成這樣<a href="https://gist.github.com/jeffry1829/470d9c95765a2a5986f4982bc013308d" target="_blank">外部連結</a>，因為原本的case3有兩個model，所以下一個model需要release兩次，為了方便，我們直接把case3改成新model。(我在背景下了一點功夫，可以讀一讀。path一樣需要調整一下)<br/>
         8.但是會發現人物太小了，和預期的效果不同，此時我們需要到assets/live2d/houkagou2/ev2/moc/ev_02/ev02.model.json改一下顯示大小。<br/>
         9.加入<br/>
         "layout":
