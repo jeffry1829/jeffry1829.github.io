@@ -56,10 +56,13 @@ LAppLive2DManager.prototype.changeModel = function(gl)
                 break;
             case 3: 
                 this.releaseModel(0, gl);
+                canvas.style.width="854px";
+                canvas.style.height="800px";
+                canvas.style.backgroundSize="contain";
+                canvas.style.backgroundImage="url(/live2d/assets/live2d/houkago2/ev2/moc/bg_06_ev2.jpg)";
+                canvas.style.backgroundRepeat="no-repeat";
                 this.createModel();
                 this.models[0].load(gl, LAppDefine.MODEL_HOUKAGOU);
-                canvas.style.backgroundImage="url(/live2d/assets/live2d/houkago2/ev2/moc/bg_06_ev2.jpg)";
-                canvas.style.backgroundSize="contain";
                 break;
             case 4:
                 canvas.style.backgroundImage="none";
