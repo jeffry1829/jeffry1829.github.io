@@ -30,12 +30,23 @@
         https://prismjs.com/plugins/unescaped-markup/
     -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-    <script src='live2d/live2d.min.js'></script>
-    <script src='live2d/main.js' async></script>
+    
+    <script src='live2d/lib/live2d.min.js'></script>
+    
+    <script src='live2d/framework/Live2DFramework.js'></script>
+
+    <script src="live2d/src/utils/MatrixStack.js"></script>
+    <script src="live2d/src/utils/ModelSettingJson.js"></script>
+    <script src="live2d/src/PlatformManager.js"></script>
+    <script src="live2d/src/LAppDefine.js"></script>
+    <script src="live2d/src/LAppModel.js"></script>
+    <script src="live2d/src/LAppLive2DManager.js"></script>
+    <script src="live2d/src/SampleApp1.js"></script>
 </head>
 <body>
 
     <canvas id="glcanvas" width="160" height="120" style="position: relative; right:0%;"></canvas>
+    <script>sampleApp1();</script>
 
     <header style="
         display: inline-table; width: 100%;
