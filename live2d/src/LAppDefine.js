@@ -35,7 +35,7 @@ var LAppDefine = {
     MODEL_HARU_B : "/live2d/assets/live2d/haru/haru_02.model.json",
     MODEL_SHIZUKU : "/live2d/assets/live2d/shizuku/shizuku.model.json",
     MODEL_WANKO : "/live2d/assets/live2d/wanko/wanko.model.json",
-    MODEL_HOUKAGOU : "/live2d/assets/live2d/houkago2/ev3/moc/ev_03/ev03.model.json",
+    MODEL_HOUKAGOU : "/live2d/assets/live2d/houkago2/ev2/moc/ev_02/ev02.model.json",
     
     
     MOTION_GROUP_IDLE : "idle", 

@@ -31,7 +31,7 @@ LAppLive2DManager.prototype.changeModel = function(gl)
     
     if (this.reloadFlg)
     {
-        
+        var canvas=document.getElementById("glcanvas");
         this.reloadFlg = false;
         var no = parseInt(this.count % 5);
 
@@ -58,10 +58,13 @@ LAppLive2DManager.prototype.changeModel = function(gl)
                 this.releaseModel(0, gl);
                 this.createModel();
                 this.models[0].load(gl, LAppDefine.MODEL_HOUKAGOU);
-                document.getElementById("glcanvas").style.backgroundImage="url(/live2d/assets/live2d/houkago2/ev3/moc/bg_09_ev3.jpg)";
+                canvas.style.backgroundImage="url(/live2d/assets/live2d/houkago2/ev2/moc/bg_06_ev2.jpg)";
+                canvas.style.backgroundSize="cover";
                 break;
             case 4:
-                document.getElementById("glcanvas").style.backgroundImage="none";
+                canvas.style.backgroundImage="none";
+                canvas.style.width="340px";
+                canvas.style.height="470px";
 
                 this.releaseModel(0, gl);
                 
