@@ -18,5 +18,10 @@
 			{"file":"motions/mtn_02.mtn"}
 		]
 	},
-	"physics":"embed://Sample Physics.json"
+	"physics":"embed://Sample Physics.json",
+	"layout":
+	{
+		"center_x":0,
+		"width":4
+	}
 }
