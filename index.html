@@ -257,7 +257,7 @@
         首先要意識到這問題等價於求出滿足條件需要最少的edge數<br/>
         接著可以分成兩種情況，1.兩條路徑不相交2.兩條路徑有重疊(邊重疊)<br/>
         bfs求出全點對最短路(因為邊權為一，不需要特別的最短路演算法)，<br/>
-        對於第一種情況的路徑邊數為dis(s1t1)+dis(s2t2)(dis:(x,y),x,y的最短路徑長度)，<br/>
+        對於第一種情況的路徑邊數為$$dis(s1,t1)+dis(s2,t2)$$(dis:(x,y),x,y的最短路徑長度)，<br/>
         至於對第二種情況，遍歷所有s1t1,s2t2可能的重複路徑(i,j)，取其最小(和狀況一一起比大小)，最終總邊數扣掉最少需要邊數即為解答。<br/>
         原始碼:<br/>
         <a href="https://gist.github.com/jeffry1829/2a510e7db99702000d4b3cdac3d0a292" target="_blank">外部連結</a><br/>
@@ -269,8 +269,8 @@
         <br/>
         //TIOJ1306<br/>
         hash，rabin fingerprint->可O(1)獲得原字串的子字串的hash。詳見tioj 2016資訊校隊培訓講義字串篇。M取1e9就蠻穩的。<br/>
-        實作需要一點點mod的運算，因為數字非常大。要算ap^n+b^(n-1)...yp+z (mod M)可以先算a (mod M)再(*P + b) (mod M)<br/>
-        要算(a-b) (mod M)如果直接代公式(((a mod M)-(b mod M))+M)mod M會比let tmp=a-(b mod M); if(tmp&lt;0) tmp+=M;慢兩倍。(詳細
+        實作需要一點點mod的運算，因為數字非常大。要算$$ap^n+b^(n-1)...yp+z (mod M)$$可以先算$$a (mod M)再(*P + b) (mod M)$$<br/>
+        要算$$(a-b) (mod M)$$如果直接代公式$$(((a mod M)-(b mod M))+M)mod M$$會比let tmp=a-(b mod M); if(tmp&lt;0) tmp+=M;慢兩倍。(詳細
         我也沒推導過)<br/>
         可以去wiki看mod運算規則和程式碼自己推一遍。<br/>
         另外因為記憶體用得有點多，所以大部分時間都用int儲存結果，只有在運算過程中換成long long並最後mod M後再cast成int。<br/>
@@ -296,6 +296,40 @@
         Z Algo一樣可以參考tioj 2016資訊校隊培訓講義字串篇。<br/>
         原始碼:<br/>
         <a href="https://gist.github.com/jeffry1829/8701e5e9236bf6b9b052752cb61bc286" target="_blank">外部連結</a><br/>
+    </div>
+    <div class="ts text container top attached header">2018/10/10 //加入Webgl Live2D</div>
+    <div class="ts text attached container segment">
+        調適了一整天，終於完成了。以下列出步驟:<br/>
+        1.下載Live2D SDK <a href="http://app2.live2d.com/cubism/sdk/bowiuex/webgl/Live2D_SDK_WebGL_2.0.05_1_en.zip" target="_blank">外部連結</a><br/>
+        2.將sdk中的lib,framework和sample/sampleApp1/src,assets都複製到網頁目錄裡<br/>
+        3.因為調配過程中會用到cross-site request，所以隨便裝個http server來serve你的頁面，我使用Windows miniweb，非常輕巧。(網址:localhost:8000)<br/>
+        4.在你自己寫的html裡加上<br/>
+        &lt;body onload=&quot;sampleApp1()&quot;&gt;<br/>
+        &lt;button id=&quot;btnChange&quot; class=&quot;active&quot; style=&quot;position: fixed; float:right; z-index: 101; right:3px; bottom: 480px;&quot;&gt;Change Model&lt;/button&gt;<br/>
+        &lt;canvas id=&quot;glcanvas&quot; width=&quot;340px&quot; height=&quot;470px&quot; style=&quot;position: fixed; float:right; z-index: 100; right:0px; bottom: 0px;&quot;&gt;&lt;/canvas&gt;<br/>
+        (注意不要用css指定width/height，因為sdk是去抓html tag的數值，不是css的)<br/>
+        5.head tag裡加入<a href="https://gist.github.com/jeffry1829/63221c8d707d424538dbcfb528467201" target="_blank">外部連結</a>，(path需要自己調整一下， live2d/..... 是我的資料夾配置)<br/>
+        6.基本上已經有預設的4種顯示了。<br/>
+        <br/>
+        接下來講解如何加入新顯示。<br/>
+        1.首先介紹一個分享model的網站 <a href="http://library.live2d.com/" target="_blank">外部連結</a><br/>
+        2.本次教學使用<a href="http://library.live2d.com/Libraries/view/000051/kamiyoshi" target="_blank">外部連結</a>作為範例。<br/>
+        3.下載後整個資料夾丟入assets/live2d，我們要使用的是ev2中的model。<br/>
+        4.開啟src/LAppDefine.js，加入MODEL_HOUKAGOU : "/live2d/assets/live2d/houkago2/ev2/moc/ev_02/ev02.model.json",<br/>
+        5.開啟src/LAppLive2DManager.js，找到LAppLive2DManager.prototype.changeModel，裡面有一個switch(no)，大概意思就是每按一次按鈕no+=1
+        然後處理不同的case，可以稍微讀讀。<br/>
+        6.把上面var no = parseInt(this.count % 4);改成%5，因為我們要多加一個進去。<br/>
+        7.把case 3改成這樣<a href="https://gist.github.com/jeffry1829/470d9c95765a2a5986f4982bc013308d" target="_blank">外部連結</a>
+        ，因為原本的case3有兩個model，所以下一個model需要release兩次，為了方便，我們直接把case3改成新model。(我在背景下了一點功夫，可以讀一讀。path一樣需要調整一下)<br/>
+        8.但是會發現人物太小了，和預期的效果不同，此時我們需要到assets/live2d/houkagou2/ev2/moc/ev_02/ev02.model.json改一下顯示大小。<br/>
+        9.加入<br/>
+        "layout":
+	    {
+		    "center_x":0,
+		    "width":2.2
+        }<br/>
+        width好像並沒有一個嚴格的比例對應到我們canvas的大小，所以之後調新model的時候可以自己試試看哪樣合適。<br/>
+        10.大功告成。
     </div>
     <div class="ts text container top attached header">2018/8/1 //JustDoIt</div>
     <div class="ts text attached container segment">
