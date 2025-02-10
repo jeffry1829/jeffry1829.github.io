@@ -1,0 +1,197 @@
+/* 全站背景：較亮的漸變色系 */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #283048, #4b79a1, #a8c0ff, #e0eafc);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    /* 移除文字陰影以避免模糊 */
+    /* text-shadow: none; */
+  }
+  
+  /* 漸變動畫 keyframes */
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* particles.js 區塊（如啟用背景動畫） */
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+  
+  /* 頁首區 */
+  .header-section {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    padding: 60px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  .header-section h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #fff;
+  }
+  .header-section p {
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  
+  /* 主要內容區：採用較淺背景與深色文字，確保內文清晰 */
+  .main-content {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 30px;
+    color: #333;
+  }
+  .main-content h2,
+  .main-content p,
+  .main-content li,
+  .main-content a {
+    color: #333;
+  }
+  
+  /* 個人頭像 */
+  .profile-img {
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.6);
+    transition: transform 0.3s ease-in-out;
+  }
+  .profile-img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 自訂按鈕 */
+
+  /* 移除按鈕群組及其按鈕的邊框、outline 與聚焦時的 box-shadow */
+  .btn-group {
+    border: none;
+  }
+
+  .btn-group .btn {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 針對焦點狀態也清除外框 */
+  .btn-group .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 若因為 inline 元素間的空白產生縫隙，可以試試以下做法（選用）：
+    將 .btn-group 設定為 flex 布局 */
+  .btn-group {
+    display: flex;
+  }
+
+  .btn-primary-custom {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    border: none;
+    color: #fff;
+  }
+  .btn-primary-custom:hover {
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
+  }
+  .btn-secondary-custom {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    border: none;
+    color: #fff;
+  }
+  .btn-secondary-custom:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.5);
+  }
+  .btn-minecraft {
+    background: linear-gradient(90deg, #a1c4fd, #c2e9fb); /* 較淺的藍色漸層 */
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  .btn-minecraft:hover {
+    background: linear-gradient(90deg, #c2e9fb, #a1c4fd);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(194, 233, 251, 0.5);
+  }
+  
+  /* 卡片區塊 */
+  .card {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Footer 區塊 */
+  .footer-section {
+    background: #222;
+    padding: 20px 0;
+    margin-top: 30px;
+  }
+  .footer-section p {
+    margin: 0;
+    color: #fff;
+  }
+  
+  /* 強調技能區塊 */
+  .skills-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  .skills-section h2::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    left: 25%;
+    bottom: -10px;
+  }
+  .skills-section .badge {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    margin: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .skills-section .badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* 響應式調整 */
+  @media (max-width: 768px) {
+    .header-section h1 {
+      font-size: 2.5rem;
+    }
+    .header-section p {
+      font-size: 1rem;
+    }
+  }
+  
