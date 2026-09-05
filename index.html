@@ -1,290 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="林昶滕 - 物理碩士、數學輔系、11 年程式設計經驗，專注於量化金融、演算法開發與高效能計算">
-  <meta name="keywords" content="物理, 數學, 程式設計, 量化金融, 高效能計算, 演算法">
-  <meta name="author" content="林昶滕">
-  <title>林昶滕 - Profile</title>
-  
-  <!-- 自訂 CSS -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="林昶滕（Chang-Teng Lin）｜Kronos Research Alpha Researcher，專注加密貨幣高頻交易、量化研究、高效能 C++ 與科學計算。">
+  <meta name="keywords" content="Chang-Teng Lin, 林昶滕, HFT, Alpha Research, Quantitative Research, C++, Crypto, Cytnx, Linux">
+  <meta name="author" content="Chang-Teng Lin">
+  <meta property="og:title" content="Chang-Teng Lin｜Alpha Researcher & C++ Engineer">
+  <meta property="og:description" content="Crypto HFT、量化研究、高效能 C++、科學計算與 Linux 維運作品集。">
+  <meta property="og:type" content="website">
+  <title>Chang-Teng Lin｜Alpha Researcher & C++ Engineer</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="styles.css">
-  <!-- Bootstrap 5 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <!-- Font Awesome (選用) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-  <!-- 背景動畫區塊，可啟用 particles.js -->
-  <div id="particles-js"></div>
-  
-  <!-- 頁首區 -->
-  <header class="header-section">
-    <div class="container">
-      <h1 class="animate__animated animate__fadeInDown">林昶滕</h1>
-      <p class="lead animate__animated animate__fadeInDown">Physics & Mathematics | Software Engineering | Quantitative Research</p>
-    </div>
+<body id="top">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="主要導覽">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <span class="brand-mark">CTL</span>
+        <span>林昶滕</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="開啟導覽選單">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#skills">能力</a>
+        <a href="#hft">HFT 經歷</a>
+        <a href="#work">作品集</a>
+        <a href="#research">研究</a>
+        <a class="nav-cta" href="CVGeneral.pdf" target="_blank" rel="noreferrer">
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+          CV
+        </a>
+      </div>
+    </nav>
   </header>
-  
-  <!-- 主要內容 -->
-  <main class="container main-content animate__animated animate__fadeInUp">
-    <!-- 個人簡介 -->
-    <section class="profile-section text-center" aria-label="Profile">
-      <img src="profile.jpg" alt="Profile Picture of 林昶滕" class="profile-img animate__animated animate__zoomIn" width="150">
-      <p class="lead mt-3">物理碩士，數學輔系，11 年程式設計經驗，專注於量化金融、演算法開發與高效能計算。</p>
-      <div class="btn-group mt-3">
-        <a href="https://blog.seekrealthing.net/blog" target="_blank" class="btn btn-primary-custom animate__animated animate__pulse animate__infinite">
-          <i class="fas fa-globe"></i> 個人網站
-        </a>
-        <a href="https://github.com/jeffry1829" target="_blank" class="btn btn-secondary-custom animate__animated animate__pulse animate__infinite">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="http://web.seekrealthing.net/" target="_blank" class="btn btn-minecraft animate__animated animate__pulse animate__infinite">
-          <i class="fas fa-gamepad"></i> MC伺服器
-        </a>
-      </div>      
-    </section>
-    
-    <!-- 學歷 -->
-    <section class="education-section mt-5" aria-label="Education">
-      <h2>學歷</h2>
-      <ul class="list-group list-group-flush mt-3">
-        <li class="list-group-item">國立臺灣大學 - 物理學系碩士 (2022-2024)</li>
-        <li class="list-group-item">國立臺灣大學 - 物理學系、數學系學士 (2018-2022)</li>
-      </ul>
-    </section>
-    
-    <!-- 技能 -->
-    <section class="skills-section mt-5" aria-label="Skills">
-      <h2 class="mb-4">技能</h2>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        
-        <!-- Programming Languages -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-primary">
-            <div class="card-header bg-primary text-white d-flex align-items-center">
-              <i class="fas fa-code me-2"></i>
-              <span>Programming Languages</span>
-              <small class="ms-auto">(2013 – Present)</small>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-check-circle text-primary me-1"></i> C/C++</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> Cuda</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> Python</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> Java</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> Julia</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> JavaScript</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> Rust</li>
-                <li><i class="fas fa-check-circle text-primary me-1"></i> HTML, CSS, NodeJs</li>
-              </ul>
-            </div>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Alpha Researcher @ Kronos Research</p>
+          <h1 id="hero-title">Chang-Teng Lin<br><span>林昶滕</span></h1>
+          <p class="hero-role">Crypto HFT · Quantitative Research · C++ Performance Engineering</p>
+          <p class="hero-lead">我把研究問題寫成會跑、跑得快，而且真的能上線的系統。目前從 tick-level market data 出發，獨立完成 alpha 假設、backtest、C++ 實作到 live trading。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+              看作品
+            </a>
+            <a class="button button-ghost" href="https://github.com/jeffry1829" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              GitHub
+            </a>
+            <a class="icon-button" href="mailto:jeffry1829@gmail.com" title="寄信給我" aria-label="寄信給我">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
-        
-        <!-- Tools -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-secondary">
-            <div class="card-header bg-secondary text-white d-flex align-items-center">
-              <i class="fas fa-tools me-2"></i>
-              <span>Tools</span>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-check-circle text-secondary me-1"></i> Git</li>
-                <li><i class="fas fa-check-circle text-secondary me-1"></i> VTune</li>
-                <li><i class="fas fa-check-circle text-secondary me-1"></i> Profiling Tools</li>
-                <li><i class="fas fa-check-circle text-secondary me-1"></i> Linux</li>
-              </ul>
-            </div>
+
+        <div class="hero-signal reveal" aria-label="研究到上線流程">
+          <div class="signal-head">
+            <span>research_to_production.log</span>
+            <span class="signal-live">LIVE</span>
           </div>
+          <ol>
+            <li><span>01</span> market microstructure hypothesis</li>
+            <li><span>02</span> feature & signal research</li>
+            <li><span>03</span> backtest / robustness / diagnostics</li>
+            <li><span>04</span> production C++ implementation</li>
+            <li><span>05</span> live trading & attribution</li>
+          </ol>
         </div>
-        
-        <!-- Data Science & Machine Learning -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-info">
-            <div class="card-header bg-info text-white d-flex align-items-center">
-              <i class="fas fa-chart-line me-2"></i>
-              <span>Data Science &amp; ML</span>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-check-circle text-info me-1"></i> PyTorch</li>
-                <li><i class="fas fa-check-circle text-info me-1"></i> Numpy</li>
-                <li><i class="fas fa-check-circle text-info me-1"></i> Scipy</li>
-                <li><i class="fas fa-check-circle text-info me-1"></i> Pandas</li>
-                <li><i class="fas fa-check-circle text-info me-1"></i> Matplotlib</li>
-                <li><i class="fas fa-check-circle text-info me-1"></i> Keras</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <!-- DevOps -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-dark">
-            <div class="card-header bg-dark text-white d-flex align-items-center">
-              <i class="fas fa-server me-2"></i>
-              <span>DevOps</span>
-              <small class="ms-auto">(2013 – Present)</small>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-check-circle text-dark me-1"></i> Anaconda</li>
-                <li><i class="fas fa-check-circle text-dark me-1"></i> Github Action</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Classical Algorithms -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-warning">
-            <div class="card-header bg-warning text-dark d-flex align-items-center">
-              <i class="fas fa-puzzle-piece me-2"></i>
-              <span>Classical Algorithms</span>
-              <small class="ms-auto text-muted">(2018 – Present)</small>
-            </div>
-            <div class="card-body">
-              <p class="mb-2">Competitive programming:</p>
-              <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Dynamic Programming</li>
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Binary Search</li>
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Binary Indexed Tree</li>
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Segment Tree</li>
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Monotone Stack</li>
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Graph &amp; Number Theory</li>
-                <li><i class="fas fa-check-circle text-warning me-1"></i> Divide and Conquer</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Mathematical Training -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-success">
-            <div class="card-header bg-success text-white d-flex align-items-center">
-              <i class="fas fa-calculator me-2"></i>
-              <span>Mathematical Training</span>
-              <small class="ms-auto">(2018 – Present)</small>
-            </div>
-            <div class="card-body">
-              <p class="mb-2">
-                <i class="fas fa-check-circle text-success me-1"></i>
-                Mathematical Finance, Probability, Linear Algebra, Analysis, ODE, PDE, Algebra, Complex Analysis, Geometry, Cryptography.
-              </p>
-              <p class="mb-0"><small class="text-muted">應用於機器學習、演算法設計、數學建模與資料分析</small></p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Server & Network Maintenance -->
-        <div class="col">
-          <div class="card h-100 shadow-sm border-danger">
-            <div class="card-header bg-danger text-white d-flex align-items-center">
-              <i class="fas fa-network-wired me-2"></i>
-              <span>Server &amp; Network Maintenance</span>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled mb-0">
-                <li>
-                  <strong>Linux Server</strong> <small class="text-muted">(Summer 2020 – Present)</small>
-                  <br><i class="fas fa-check-circle text-danger me-1"></i> 安全連線、撰寫腳本、維護資料庫
-                </li>
-                <li class="mt-2">
-                  <strong>Internet Connections</strong>
-                  <br><i class="fas fa-check-circle text-danger me-1"></i> DNS, 反向代理, DDNS
-                </li>
-                <li class="mt-2">
-                  <strong>Java Server Plugins</strong> <small class="text-muted">(2013 – Present)</small>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
+      </div>
+
+      <div class="proof-strip shell" aria-label="重點成果">
+        <div class="proof-item"><strong>2</strong><span>個 HFT alpha<br>獨立從零做到上線</span></div>
+        <div class="proof-item"><strong>50%</strong><span>alpha 計算<br>profiling 後加速</span></div>
+        <div class="proof-item"><strong>13+</strong><span>年程式設計<br>自 2013 年起</span></div>
+        <div class="proof-item"><strong>2+</strong><span>年 Minecraft Server<br>營運與 Linux 維運</span></div>
       </div>
     </section>
 
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="kicker">Core capabilities</p>
+          <h2 id="skills-title">先看我能解什麼問題</h2>
+          <p>研究、系統與效能工作不是分開的三件事。我習慣一路追到資料、實作與 production behavior 對得起來。</p>
+        </div>
 
-    
-    <!-- 工作經歷 -->
-    <section class="experience-section mt-5" aria-label="Work Experience">
-      <h2>工作經歷</h2>
-      <ul class="list-group list-group-flush mt-3">
-        <li class="list-group-item">國立臺灣大學 助教 (2022-2024) - 統計物理、熱力學、力學，管理 40 名以上學生</li>
-      </ul>
-    </section>
-    
-    <!-- 專案 -->
-    <section class="projects-section mt-5" aria-label="Projects">
-      <h2>專案</h2>
-      <div class="card mx-auto mt-3 animate__animated animate__bounce" style="max-width: 600px;">
-        <div class="card-body">
-          <h3 class="card-title">Cytnx</h3>
-          <p class="card-text">
-            高效能計算物理模擬工具，優化至業界標準速度。<br>
-            <a href="https://github.com/Cytnx-dev/Cytnx" target="_blank" class="text-decoration-underline">查看專案</a>
-          </p>
+        <div class="skill-table">
+          <article class="skill-row reveal">
+            <div class="skill-index">01</div>
+            <div class="skill-title"><h3>HFT &amp; Quant Research</h3><p>從想法到 live trading</p></div>
+            <p>Tick-level market data、market microstructure、order flow、feature engineering、signal validation、backtest、simulation、performance attribution、maker / taker execution。</p>
+            <div class="tags"><span>Alpha</span><span>Sharpe</span><span>PnL</span><span>Slippage</span></div>
+          </article>
+          <article class="skill-row reveal">
+            <div class="skill-index">02</div>
+            <div class="skill-title"><h3>C++ & Performance</h3><p>讓研究程式足以進 production</p></div>
+            <p>以 C++ 為主力，搭配 Python、CUDA、VTune 與 profiling 工具；處理大量 tick data、數值演算法、資料結構、CPU / GPU 與 HPC 工作負載。</p>
+            <div class="tags"><span>C++</span><span>Python</span><span>CUDA</span><span>VTune</span></div>
+          </article>
+          <article class="skill-row reveal">
+            <div class="skill-index">03</div>
+            <div class="skill-title"><h3>Linux &amp; Production Systems</h3><p>不是只在 notebook 裡成功</p></div>
+            <p>Linux 日常維運、shell scripting、資料庫、安全連線、DNS、reverse proxy、DDNS 與即時資料流；有兩年以上遊戲伺服器實際營運經驗。</p>
+            <div class="tags"><span>Linux</span><span>Git</span><span>DNS</span><span>Automation</span></div>
+          </article>
+          <article class="skill-row reveal">
+            <div class="skill-index">04</div>
+            <div class="skill-title"><h3>Scientific Computing</h3><p>數學、物理與工程實作</p></div>
+            <p>Tensor network、線性代數、機率統計、時間序列、數值方法與演算法設計；維護同時支援 C++ / Python、CPU / GPU 的 Cytnx library。</p>
+            <div class="tags"><span>Tensor Network</span><span>NumPy</span><span>PyTorch</span></div>
+          </article>
+          <article class="skill-row reveal">
+            <div class="skill-index">05</div>
+            <div class="skill-title"><h3>Agentic Research Engineering</h3><p>加快研究迭代，但保留驗證</p></div>
+            <p>使用 Claude Code 與 coding agents 做任務拆解、程式生成與重構、測試、debug、實驗執行及驗證迴圈，建立可重用的長時間研究 workflow。</p>
+            <div class="tags"><span>Claude Code</span><span>Evaluation</span><span>Orchestration</span></div>
+          </article>
         </div>
       </div>
     </section>
-    
-    <!-- 證照 -->
-    <section class="certifications-section mt-5" aria-label="Certifications">
-      <h2>證照</h2>
-      <ul class="list-group list-group-flush mt-3">
-        <li class="list-group-item">Certified in Cybersecurity (CC)</li>
-      </ul>
+
+    <section class="section hft-section" id="hft" aria-labelledby="hft-title">
+      <div class="shell hft-layout">
+        <div class="hft-intro reveal">
+          <p class="kicker">Kronos Research · Jul 2025 – Present</p>
+          <h2 id="hft-title">Crypto HFT<br>research to production</h2>
+          <p>Alpha Researcher，負責短週期預測訊號的完整生命週期。工作從資料與假設開始，最後落在 production C++、真實成交與可解釋的績效歸因。</p>
+        </div>
+        <div class="hft-points">
+          <article class="hft-point reveal">
+            <span>01</span>
+            <div><h3>兩個 alpha，從零到實盤</h3><p>獨立完成 hypothesis generation、feature / signal development、backtesting、C++ implementation、production deployment 與 live trading。</p></div>
+          </article>
+          <article class="hft-point reveal">
+            <span>02</span>
+            <div><h3>用診斷回答「為什麼」</h3><p>建立 backtest、simulation 與 diagnostics，檢查 signal strength、stability、turnover、implementation sensitivity；再用 attribution 追 production degradation。</p></div>
+          </article>
+          <article class="hft-point reveal">
+            <span>03</span>
+            <div><h3>交易成本進到研究裡</h3><p>在 tick resolution 研究 maker / taker execution，量化 liquidity、transaction cost、slippage、adverse selection 與 order-flow effects。</p></div>
+          </article>
+          <article class="hft-point reveal">
+            <span>04</span>
+            <div><h3>效能是策略的一部分</h3><p>對 alpha calculation 做 profiling 與熱點優化，取得 50% speedup；也持續改良既有策略，提升 Sharpe ratio 與 PnL。</p></div>
+          </article>
+        </div>
+      </div>
     </section>
-    
-    <!-- 研究經歷 -->
-    <section class="research-section mt-5" aria-label="Research Experience">
-      <h2>研究經歷</h2>
-      <ul class="list-group list-group-flush mt-3">
-        <li class="list-group-item">碩士論文：<a href="https://doi.org/10.6342/NTU202403459" target="_blank" class="text-decoration-underline">Kitaev 模型譜函數研究</a></li>
-        <li class="list-group-item">自旋電子學實驗：測量自旋軌道力矩、自旋霍爾角</li>
-        <li class="list-group-item">Tensor Network Summer School 助教 (2022)</li>
-        <li class="list-group-item">SQAI-NCTS Poster Presentation (2024)</li>
-      </ul>
+
+    <section class="section portfolio-section" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-heading section-heading-row reveal">
+          <div>
+            <p class="kicker">Selected work</p>
+            <h2 id="work-title">作品集</h2>
+          </div>
+          <p>從國中寫的可熱載入 IRC bot，到實際營運的遊戲伺服器、物理模擬 library 與 production HFT。每個專案都對應一個當時真的想解的問題。</p>
+        </div>
+
+        <article class="project-featured reveal">
+          <a class="project-image" href="minecraft/" target="_blank" aria-label="開啟真物 Minecraft 伺服器封存網站">
+            <img src="minecraft/images/主城.png" alt="真物 Minecraft 伺服器主城全景" loading="lazy">
+            <span class="archive-label">完整網站封存</span>
+          </a>
+          <div class="project-content">
+            <p class="project-era">最大型個人作品 · 大學時期 · 營運 2 年以上</p>
+            <h3>真物 Minecraft Server</h3>
+            <p class="project-summary">從 Linux 主機到遊戲機制都自己接住。處理安全連線、資料庫、例行維護腳本、DNS、reverse proxy 與 DDNS；同時寫 Java plugins，讓多人原版生存不必靠指令破壞遊戲節奏。</p>
+            <ul class="project-notes">
+              <li>自製傳送門 plugin：玩家以主城傳送門連接據點，也能建立通往朋友領地的門。</li>
+              <li>針對紅石、TNT 整地與 InventoryMoveItemEvent 等熱點調整伺服器效能；向 PaperMC 提出讓 Hopper minecart 套用 Hopper 設定的改善方案。</li>
+              <li>參與 LevelledMobs：實作區塊刷怪計數、掉落機率遞減、冷卻期間行為與訊息洗版修正；參與 UpgradingCorePlus 的箭矢傷害、護甲數值及 Spigot 1.17.1 相容。</li>
+            </ul>
+            <div class="project-links">
+              <a class="button button-dark" href="minecraft/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> 瀏覽封存網站</a>
+              <a href="https://github.com/jeffry1829/mcweb" target="_blank" rel="noreferrer">mcweb repo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/PaperMC/Paper/issues/3008" target="_blank" rel="noreferrer">PaperMC #3008 <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-card-top"><span class="project-number">01</span><span class="project-era">研究所 · Major maintainer</span></div>
+            <h3>Cytnx</h3>
+            <p>為量子物理模擬打造的 tensor-network library。我在研究所期間維護 C++ / Python API，實作數值演算法與資料結構、補 unit tests，並針對大型模擬的 performance-critical code 做 profiling 與優化。Library 同時支援 CPU / GPU，以及介面一致的 Tensor、UniTensor、Symmetry 與 Network 等抽象。</p>
+            <div class="tags"><span>C++</span><span>Python</span><span>CUDA</span><span>Tensor Network</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Cytnx-dev/Cytnx" target="_blank" rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Repository</a>
+              <a href="https://doi.org/10.21468/SciPostPhysCodeb.53" target="_blank" rel="noreferrer">Publication <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-top"><span class="project-number">02</span><span class="project-era">高一 · Real-time web app</span></div>
+            <h3>PJ_musicStream</h3>
+            <p>用 Node.js、Express 與 Socket.IO 寫的多人同步音樂串流服務。Server 會遞迴掃描本機音樂庫，讀取 MP3 metadata、封面與播放長度；所有連線使用者共享 current song 與 queue，也能加入 YouTube / MP4 來源，管理者可校正播放時間。</p>
+            <div class="tags"><span>Node.js</span><span>Socket.IO</span><span>Express</span></div>
+            <div class="project-links">
+              <a href="https://github.com/jeffry1829/PJ_musicStream" target="_blank" rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-top"><span class="project-number">03</span><span class="project-era">國中 · Plugin architecture</span></div>
+            <h3>Java IRC Bot</h3>
+            <p>直接用 Java Socket 實作 IRC 與 SASL 登入，並設計可擴充的 plugin API。啟動時掃描 plugin JAR，透過 URLClassLoader 與 reflection 載入 class；plugin 可註冊 command / event listener，具備 onEnable、onDisable 與 reload lifecycle。</p>
+            <div class="tags"><span>Java</span><span>Reflection</span><span>IRC</span><span>SASL</span></div>
+            <div class="project-links">
+              <a href="https://github.com/jeffry1829/java-ircbot" target="_blank" rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Repository</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="oss-strip reveal" aria-label="Minecraft 開源貢獻">
+          <span>更多 Minecraft plugin 提交</span>
+          <a href="https://github.com/jeffry1829/LevelledMobs" target="_blank" rel="noreferrer">LevelledMobs <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/jeffry1829/UpgradingCorePlus" target="_blank" rel="noreferrer">UpgradingCorePlus <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
     </section>
-    
-    <!-- Publication -->
-    <section class="publications-section mt-5" aria-label="Publications">
-      <h2>Publication</h2>
-      <ul class="list-group list-group-flush mt-3">
-        <li class="list-group-item">
-          Kai-Hsin Wu, <strong>Chang-Teng Lin</strong>, Ke Hsu, Hao-Ti Hung, Manuel Schneider, Chia-Min Chung, Ying-Jer Kao, Pochung Chen: “The Cytnx Library for Tensor Networks”, 2024
-        </li>
-      </ul>
+
+    <section class="section research-section" id="research" aria-labelledby="research-title">
+      <div class="shell research-layout">
+        <div class="section-heading reveal">
+          <p class="kicker">Research &amp; education</p>
+          <h2 id="research-title">物理訓練給我的，不只是題目</h2>
+          <p>面對不好定義、沒有標準答案的問題，我習慣先把假設與可觀測量說清楚，再設計能排除錯誤答案的實驗。</p>
+          <a class="text-link" href="CVGeneral.pdf" target="_blank" rel="noreferrer"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> 閱讀完整 CV</a>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <p class="timeline-date">2022 – 2024 · NTU Physics, M.S.</p>
+            <h3>Tensor Network / Kitaev Model</h3>
+            <p>發展二維基態與激發態 tensor-network 方法，將數值演算法延伸到更複雜系統。碩士論文研究以生成函數計算 Kitaev model spectral function。</p>
+            <a href="https://doi.org/10.6342/NTU202403459" target="_blank" rel="noreferrer">碩士論文 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="timeline-item reveal">
+            <p class="timeline-date">2021 – 2022 · Undergraduate Research</p>
+            <h3>Spintronics</h3>
+            <p>以 NM/FM multilayers、harmonic measurement 與 lock-in amplifier 量測 spin-orbit torque / spin Hall angle；實作薄膜製備、PPMS magnetoresistance / Hall measurement 與 RTA 退火。</p>
+          </article>
+          <article class="timeline-item reveal">
+            <p class="timeline-date">2018 – 2022 · NTU</p>
+            <h3>B.S. Physics, Minor in Mathematics</h3>
+            <p>修習機率、統計、線性代數、實分析、ODE / PDE、數值方法與數學金融；另參與 quantum algorithm study group，研讀 Shor、HHL、QFT 與 QPE。</p>
+          </article>
+          <article class="timeline-item reveal">
+            <p class="timeline-date">2022 – 2024 · Teaching</p>
+            <h3>NTU Teaching Assistant</h3>
+            <p>擔任統計物理、熱力學與力學助教，負責 40 名以上學生；另於 2022 Tensor Network Summer School 擔任助教。</p>
+          </article>
+        </div>
+      </div>
     </section>
-    
-    <!-- Curriculum Vitae -->
-    <section class="cv-section mt-5" aria-label="Curriculum Vitae">
-      <h2>Curriculum Vitae</h2>
-      <p>請點擊下方連結以在新視窗中檢視我的 CV：</p>
-      <p class="mt-3"><a href="CVGeneral.pdf" target="_blank" class="btn btn-info">開啟 CV (PDF)</a></p>
+
+    <section class="contact-section" aria-labelledby="contact-title">
+      <div class="shell contact-inner reveal">
+        <p class="kicker">Contact</p>
+        <h2 id="contact-title">研究得夠深，也把東西做完。</h2>
+        <p>Crypto HFT · Quantitative Research · C++ · Scientific Computing</p>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:jeffry1829@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> jeffry1829@gmail.com</a>
+          <a class="button button-ghost-light" href="https://github.com/jeffry1829" target="_blank" rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        </div>
+      </div>
     </section>
-    
   </main>
-  
-  <!-- 頁尾 -->
-  <footer class="footer-section mt-5">
-    <div class="container">
-      <p>© 2025 林昶滕. All rights reserved.</p>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>© <span id="year">2026</span> Chang-Teng Lin</p>
+      <a href="#top">回到頂端 <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
-  
-  <!-- particles.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS.load('particles-js', 'particles.json', function() {
-      console.log('particles.js config loaded');
-    });
-  </script>
- 
+
+  <script src="script.js"></script>
 </body>
 </html>

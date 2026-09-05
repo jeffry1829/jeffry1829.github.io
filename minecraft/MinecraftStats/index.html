@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="js/lib/bootstrap-4.3.1.min.css"/>
+        <link rel="stylesheet" href="style.min.css"/>
+        <link rel="icon" href="data/server-icon.png"/>
+
+        <title>Minecraft Stats</title>
+    </head>
+    <body>
+        <nav class="position-absolute navbar navbar-dark navbar-expand-sm ml-2 mt-4 p-1 round-box">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#awards">榮耀</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#events">活動</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#hof">總排名</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#players">玩家列表</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="header" class="clearfix text-center">
+            <div id="info" class="float-right ml-auto mr-2 mt-4 p-2 round-box small text-right" style="display:none;">
+                <img id="server-icon" class="mr-1 img-textsize-3 align-bottom" title="" src="data/server-icon.png"/>
+                <span id="server-name" class="d-none d-sm-inline text-shadow">(server name)</span>
+                <div class="small text-muted">
+                    Last update: <span id="update-time" class="text-info">(last update)</span>
+                </div>
+            </div>
+        </div>
+        <div id="loader" class="container text-center mt-2">
+            <img class="img-pixelated img-textsize-8" src="img/loader.gif"/>
+            <h4 class="mt-2 text-shadow">Loading...</h4>
+        </div>
+        <div id="content" style="display:none;">
+            <div id="view" class="container mx-auto">
+                <div class="h1 my-4 text-center">
+                    <img id="view-icon" class="img-pixelated img-left img-textsize align-baseline"/>
+                    <span id="view-title" class="text-underline text-shadow">(view title)</h1>
+                </div>
+                <h5 id="view-subtitle" class="text-center text-shadow">(view subtitle)</h5>
+                <div id="view-desc" class="mb-2 text-muted text-center text-shadow">(view desc)</div>
+                <div id="view-content">(view content)</div>
+            </div>
+            <div id="footer" class="container-fluid mt-3 py-2 text-center text-muted small">
+                <!--
+                    LICENSE NOTE:
+                    The "Attribution" part with respect to the CC BY-SA 4.0
+                    license is that you provide a link to the original repository
+                    like the one below.
+
+                    If you remove it, please make sure it appears somewhere else!
+                -->
+                <a href="https://github.com/pdinklag/MinecraftStats">MinecraftStats</a>
+                &ndash; written by Patrick Dinklage a.k.a. "pdinklag".<br/>
+                Minecraft UI icons and default skins are trademarks and copyrights of <a href="http://mojang.com/">Mojang</a>.
+            </div>
+        </div>
+
+        <script src="js/lib/pako_inflate-1.0.10.min.js"></script>
+        <script src="js/lib/jquery-3.4.1.min.js"></script>
+        <script src="js/lib/popper-1.15.0.min.js"></script>
+        <script src="js/lib/bootstrap-4.3.1.min.js"></script>
+        <script src="js/mcstats.min.js"></script>
+    </body>
+</html>
