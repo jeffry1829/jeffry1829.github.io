@@ -6,14 +6,18 @@
   <meta name="description" content="林昶滕（Chang-Teng Lin）｜Kronos Research Alpha Researcher，專注加密貨幣高頻交易、量化研究、高效能 C++ 與科學計算。">
   <meta name="keywords" content="Chang-Teng Lin, 林昶滕, HFT, Alpha Research, Quantitative Research, C++, Crypto, Cytnx, Linux">
   <meta name="author" content="Chang-Teng Lin">
-  <meta property="og:title" content="Chang-Teng Lin｜Alpha Researcher & C++ Engineer">
+  <meta property="og:title" content="Chang-Teng Lin｜Alpha Researcher &amp; C++ Engineer">
   <meta property="og:description" content="Crypto HFT、量化研究、高效能 C++、科學計算與 Linux 維運作品集。">
   <meta property="og:type" content="website">
-  <title>Chang-Teng Lin｜Alpha Researcher & C++ Engineer</title>
+  <meta property="og:locale" content="zh_TW">
+  <title>Chang-Teng Lin｜Alpha Researcher &amp; C++ Engineer</title>
   <link rel="icon" href="favicon.ico">
+  <link rel="alternate" hreflang="zh-Hant" href="https://jeffry.is-a.dev/">
+  <link rel="alternate" hreflang="en" href="https://jeffry.is-a.dev/en/">
+  <link rel="alternate" hreflang="x-default" href="https://jeffry.is-a.dev/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+TC:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -26,18 +30,24 @@
         <span class="brand-mark">CTL</span>
         <span>林昶滕</span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="開啟導覽選單">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="#skills">能力</a>
-        <a href="#hft">HFT 經歷</a>
-        <a href="#work">作品集</a>
-        <a href="#research">研究</a>
-        <a class="nav-cta" href="CVGeneral.pdf" target="_blank" rel="noreferrer">
-          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
-          CV
-        </a>
+      <div class="nav-actions">
+        <div class="nav-links" id="nav-links">
+          <a href="#skills">能力</a>
+          <a href="#hft">HFT 經歷</a>
+          <a href="#work">作品集</a>
+          <a href="#research">研究</a>
+          <a class="nav-cta" href="CVGeneral.pdf" target="_blank" rel="noreferrer">
+            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+            CV
+          </a>
+        </div>
+        <div class="language-switch" role="group" aria-label="語言切換">
+          <a class="is-active" href="./" lang="zh-Hant" aria-current="page">中</a>
+          <a href="en/" lang="en" hreflang="en">EN</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="開啟導覽選單" data-label-open="開啟導覽選單" data-label-close="關閉導覽選單">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
       </div>
     </nav>
   </header>
@@ -72,10 +82,10 @@
           </div>
           <ol>
             <li><span>01</span> market microstructure hypothesis</li>
-            <li><span>02</span> feature & signal research</li>
+            <li><span>02</span> feature &amp; signal research</li>
             <li><span>03</span> backtest / robustness / diagnostics</li>
             <li><span>04</span> production C++ implementation</li>
-            <li><span>05</span> live trading & attribution</li>
+            <li><span>05</span> live trading &amp; attribution</li>
           </ol>
         </div>
       </div>
@@ -105,7 +115,7 @@
           </article>
           <article class="skill-row reveal">
             <div class="skill-index">02</div>
-            <div class="skill-title"><h3>C++ & Performance</h3><p>讓研究程式足以進 production</p></div>
+            <div class="skill-title"><h3>C++ &amp; Performance</h3><p>讓研究程式足以進 production</p></div>
             <p>以 C++ 為主力，搭配 Python、CUDA、VTune 與 profiling 工具；處理大量 tick data、數值演算法、資料結構、CPU / GPU 與 HPC 工作負載。</p>
             <div class="tags"><span>C++</span><span>Python</span><span>CUDA</span><span>VTune</span></div>
           </article>
@@ -185,7 +195,6 @@
             </ul>
             <div class="project-links">
               <a class="button button-dark" href="minecraft/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> 瀏覽封存網站</a>
-              <a href="https://github.com/jeffry1829/mcweb" target="_blank" rel="noreferrer">mcweb repo <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/PaperMC/Paper/issues/3008" target="_blank" rel="noreferrer">PaperMC #3008 <span aria-hidden="true">↗</span></a>
             </div>
           </div>

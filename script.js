@@ -1,11 +1,13 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+const menuOpenLabel = menuToggle?.dataset.labelOpen || "Open navigation";
+const menuCloseLabel = menuToggle?.dataset.labelClose || "Close navigation";
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("is-open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "關閉導覽選單" : "開啟導覽選單");
+    menuToggle.setAttribute("aria-label", isOpen ? menuCloseLabel : menuOpenLabel);
     menuToggle.querySelector("i")?.classList.toggle("fa-bars", !isOpen);
     menuToggle.querySelector("i")?.classList.toggle("fa-xmark", isOpen);
     document.body.classList.toggle("menu-open", isOpen);
@@ -15,7 +17,7 @@ if (menuToggle && navLinks) {
     link.addEventListener("click", () => {
       navLinks.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "開啟導覽選單");
+      menuToggle.setAttribute("aria-label", menuOpenLabel);
       menuToggle.querySelector("i")?.classList.add("fa-bars");
       menuToggle.querySelector("i")?.classList.remove("fa-xmark");
       document.body.classList.remove("menu-open");
